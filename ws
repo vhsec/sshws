@@ -2,7 +2,7 @@
 import socket, threading, thread, select, signal, sys, time, getopt
 
 # Listen
-LISTENING_ADDR = '::'
+LISTENING_ADDR = '0.0.0.0'
 LISTENING_PORT = sys.argv[1]
 
 # Pass
@@ -25,7 +25,7 @@ class Server(threading.Thread):
         self.logLock = threading.Lock()
 
     def run(self):
-        self.soc = socket.socket(socket.AF_INET6)
+        self.soc = socket.socket(socket.AF_INET)
         self.soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.soc.settimeout(2)
         intport = int(self.port)
