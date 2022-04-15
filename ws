@@ -11,7 +11,7 @@ PASS = ''
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = '127.0.0.1:443'
+DEFAULT_HOST = 'shell.xshellz.com:22'
 RESPONSE = 'HTTP/1.1 101 <b><font color="green"> Ndak tau.</font></b>\r\n\r\nContent-Length: 104857600000\r\n\r\n'
 
 class Server(threading.Thread):
@@ -130,7 +130,7 @@ class ConnectionHandler(threading.Thread):
                     self.method_CONNECT(hostPort)
                 elif len(PASS) != 0 and passwd != PASS:
                     self.client.send('HTTP/1.1 400 WrongPass!\r\n\r\n')
-                elif hostPort.startswith('127.0.0.1') or hostPort.startswith('localhost'):
+                elif hostPort.startswith('shell.xshellz.com') or hostPort.startswith('localhost'):
                     self.method_CONNECT(hostPort)
                 else:
                     self.client.send('HTTP/1.1 403 Forbidden!\r\n\r\n')
