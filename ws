@@ -2,7 +2,7 @@
 import socket, threading, thread, select, signal, sys, time, getopt
 
 # Listen
-LISTENING_ADDR = '0.0.0.0'
+LISTENING_ADDR = '::'
 LISTENING_PORT = sys.argv[1]
 
 # Pass
@@ -11,7 +11,7 @@ PASS = ''
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = 'localhost:22'
+DEFAULT_HOST = 'localhost:23'
 RESPONSE = 'HTTP/1.1 101 <b><font color="green"> Ndak tau.</font></b>\r\n\r\nContent-Length: 104857600000\r\n\r\n'
 
 class Server(threading.Thread):
